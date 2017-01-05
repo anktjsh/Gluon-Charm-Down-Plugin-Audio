@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':core/android')
+    compile project(':plugin-audio')
+}
+
+ext.description = 'API to access audio features for the android platform'

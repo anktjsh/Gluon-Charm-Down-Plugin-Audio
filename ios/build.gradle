@@ -1,0 +1,24 @@
+apply from: '../../ios-build.gradle'
+
+dependencies {
+    compile project(':core/ios')
+    compile project(':plugin-audio')
+}
+
+ext.description = 'API to access audio features for the iOS platform'
+
+def service = "Audio"
+
+task xcodebuild {
+    doLast {
+        xcodebuildIOS("$project.buildDir","$project.projectDir", "$service")
+    }
+}
+
+jar {
+    dependsOn xcodebuild
+    from("$project.buildDir/native/lib${service}.a")
+    {
+        into "native"
+    }
+}

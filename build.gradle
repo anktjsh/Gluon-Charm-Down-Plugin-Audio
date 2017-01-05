@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':core')
+}
+
+ext.description = 'Common API to access Audio Features'
